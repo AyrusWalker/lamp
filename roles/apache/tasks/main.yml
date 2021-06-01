@@ -17,10 +17,10 @@
     state: present
   #when: ansible_distribution_major_version == 8 
 
-- name: create index.html custom
-  copy:
-    src: index.html
-    dest: /var/www/html/index.html
+#- name: create index.html custom
+#  copy:
+#    src: index.html
+#    dest: /var/www/html/index.html
 #    backup: yes
   #when: http_index.stat.exists
    

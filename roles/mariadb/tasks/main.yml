@@ -1,2 +1,17 @@
 ---
-# tasks file for mariadb
+
+- name: Install mariadb-server
+  yum:
+    name: ['mariadb','mariadb-server']
+    state: present
+
+- name: Start mariadb
+  service:
+    name: mariadb
+    state: started
+
+- name: Enable mariadb
+  service: 
+    name: mariadb
+    enabled: yes
+...
