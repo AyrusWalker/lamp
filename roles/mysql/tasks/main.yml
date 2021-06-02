@@ -1,0 +1,13 @@
+---
+
+- name: Install Mysql
+  yum:
+    name: ['mysql-community-server','mysql-community-client']
+    state: installed
+
+- name: Enabling and starting the service Mysql
+  service:
+    name: mysqld
+    state: started
+    enabled: yes
+...

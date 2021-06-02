@@ -5,8 +5,8 @@
     name: ['php','php-mysql']
     state: present
 
-- name: Restart Apache
-  service:
-    name: httpd
-    state: restarted
+- name: copy the php file
+  copy:
+    src: index.php
+    dest: /var/www/html/index.php
 ... 

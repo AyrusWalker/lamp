@@ -29,18 +29,19 @@
  #   var: http_index
   #when: ansible_distribution_major_version == 8
    
-- name: start apache
+- name: start and enable apache
   service:
     name: httpd
     state: started
+    enabled: yes
   #when: ansible_distribution_major_version == 8
 
-- name: Reconfigure apache port
-  template:
-    src: httpd.conf.j2
-    dest: /etc/httpd/conf/httpd.conf
-  notify: 
-    - restart apache
+#- name: Reconfigure apache port
+ # template:
+  #  src: httpd.conf.j2
+   # dest: /etc/httpd/conf/httpd.conf
+  #notify: 
+   # - restart apache
   #when: ansible_distribution_major_version == 8
-
+...
 
