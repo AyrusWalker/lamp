@@ -1,0 +1,27 @@
+---
+
+- hosts: webserver
+  tasks:
+  
+  - name: Delete the php file
+    file:
+      path: /var/www/html/index.php
+      state: absent
+
+  - name: Disable and Stop Mariadb 
+    service:
+      name: mariadb
+      enabled: no
+      state: stopped
+
+  - name: Disable and Stop Apache
+    service:
+      name: httpd
+      enabled: no
+      state: stopped
+ 
+  - name: Uninstall Apache,Mariadb,php
+    yum:
+      name: ['httpd','mariadb','mariadb-server','php','php-mysql']
+      state: absent
+...

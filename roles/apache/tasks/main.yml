@@ -1,47 +1,15 @@
 ---
 
-#- name: Check index.html
- # stat:
-  #  path: /var/www/html/index.html
-#  register: http_index  
-  #when: ansible_distribution_major_version == 8
-
-# name: Back up index.html
-  #copy:
-#    #src: index.html
- #   #dest: /var/www/html/index.html
-    
 - name: Install apache
   yum:
     name: httpd
     state: present
-  #when: ansible_distribution_major_version == 8 
-
-#- name: create index.html custom
-#  copy:
-#    src: index.html
-#    dest: /var/www/html/index.html
-#    backup: yes
-  #when: http_index.stat.exists
-   
-# name: Check the value of http_index
-#  debug: 
- #   var: http_index
-  #when: ansible_distribution_major_version == 8
    
 - name: start and enable apache
   service:
     name: httpd
     state: started
     enabled: yes
-  #when: ansible_distribution_major_version == 8
 
-#- name: Reconfigure apache port
- # template:
-  #  src: httpd.conf.j2
-   # dest: /etc/httpd/conf/httpd.conf
-  #notify: 
-   # - restart apache
-  #when: ansible_distribution_major_version == 8
 ...
 
